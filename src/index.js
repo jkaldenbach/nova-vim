@@ -2,6 +2,9 @@ const uiGroups = require('nova-colors').uiGroups
 const syntaxGroups = require('nova-colors').syntaxGroups
 const ansiGroups = require('nova-colors').ansiGroups
 const versionControlGroups = require('nova-colors').versionControlGroups
+const initialBg = uiGroups.background;
+uiGroups.background = uiGroups.backgroundShade;
+uiGroups.backgroundShade = initialBg;
 
 const sourceString = `
 " ==================================================================
@@ -11,7 +14,7 @@ const sourceString = `
 function! s:highlight_helper(...)
   let l:syntax_group = a:1
   let l:foreground_color = a:2
-  let l:background_color = empty(a:3) ? "#212B30" : a:3
+  let l:background_color = empty(a:3) ? "${uiGroups.background}" : a:3
   let l:gui = a:0 == 3 ? "None" : a:4
 
   exec "highlight " . l:syntax_group . " guifg=" . l:foreground_color . " guibg=" . l:background_color . " gui=" . l:gui . " cterm=NONE term=NONE"
@@ -305,7 +308,7 @@ let g:terminal_color_0 = "${ansiGroups.normal.black}"
 let g:terminal_color_1 = "${ansiGroups.normal.red}"
 let g:terminal_color_2 = "${ansiGroups.normal.green}"
 let g:terminal_color_3 = "${ansiGroups.normal.yellow}"
-let g:terminal_color_4 = "${ansiGroups.normal.blue}"
+let g:terminal_color_4 = "${ansiGroups.normal.black}"
 let g:terminal_color_5 = "${ansiGroups.normal.magenta}"
 let g:terminal_color_6 = "${ansiGroups.normal.cyan}"
 let g:terminal_color_7 = "${ansiGroups.normal.white}"
