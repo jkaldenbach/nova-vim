@@ -6,6 +6,12 @@ const initialBg = uiGroups.background;
 uiGroups.background = uiGroups.backgroundShade;
 uiGroups.backgroundShade = initialBg;
 
+const vcCustom = {
+    add: '#305055',
+    diff: '#5F4C55',
+    change: initialBg
+}
+
 const sourceString = `
 " ==================================================================
 " HIGHLIGHT HELPER
@@ -70,10 +76,10 @@ call s:highlight_helper("PmenuThumb", "${uiGroups.userCurrentState}", "${uiGroup
 call s:highlight_helper("CtrlPMatch", "${uiGroups.background}", "${uiGroups.userCurrentState}")
 
 " VERSION CONTROL
-call s:highlight_helper("DiffAdd", "${uiGroups.background}", "${versionControlGroups.added}")
-call s:highlight_helper("DiffChange", "${uiGroups.background}", "${versionControlGroups.modified}")
+call s:highlight_helper("DiffAdd", "NONE", "${vcCustom.add}")
+call s:highlight_helper("DiffChange", "NONE", "${vcCustom.change}")
 call s:highlight_helper("DiffDelete", "${versionControlGroups.removed}", "")
-call s:highlight_helper("DiffText", "${uiGroups.background}", "${versionControlGroups.modified}", "BOLD")
+call s:highlight_helper("DiffText", "NONE", "${vcCustom.diff}", "BOLD")
 call s:highlight_helper("GitGutterAdd", "${versionControlGroups.added}", "")
 call s:highlight_helper("GitGutterChange", "${versionControlGroups.modified}", "")
 call s:highlight_helper("GitGutterChangeDelete", "${versionControlGroups.modified}", "")

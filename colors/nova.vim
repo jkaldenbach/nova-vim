@@ -63,10 +63,10 @@ call s:highlight_helper("PmenuThumb", "#7FC1CA", "#7FC1CA")
 call s:highlight_helper("CtrlPMatch", "#1E272C", "#7FC1CA")
 
 " VERSION CONTROL
-call s:highlight_helper("DiffAdd", "#1E272C", "#A8CE93")
-call s:highlight_helper("DiffChange", "#1E272C", "#F2C38F")
+call s:highlight_helper("DiffAdd", "NONE", "#305055")
+call s:highlight_helper("DiffChange", "NONE", "#3C4C55")
 call s:highlight_helper("DiffDelete", "#DF8C8C", "")
-call s:highlight_helper("DiffText", "#1E272C", "#F2C38F", "BOLD")
+call s:highlight_helper("DiffText", "NONE", "#5F4C55", "BOLD")
 call s:highlight_helper("GitGutterAdd", "#A8CE93", "")
 call s:highlight_helper("GitGutterChange", "#F2C38F", "")
 call s:highlight_helper("GitGutterChangeDelete", "#F2C38F", "")
